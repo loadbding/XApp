@@ -1,4 +1,4 @@
-package com.frame.arch
+package com.frame.arc
 
 import org.junit.Test
 
