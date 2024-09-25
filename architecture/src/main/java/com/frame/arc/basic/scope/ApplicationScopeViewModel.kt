@@ -3,9 +3,8 @@ package com.frame.arc.basic.scope
 import androidx.lifecycle.ViewModelStore
 import androidx.lifecycle.ViewModelStoreOwner
 
-open class ApplicationScopeViewModel private constructor() : ViewModelStoreOwner {
-
-    private var mAppViewModelStore: ViewModelStore? = null
+open class ApplicationScopeViewModel constructor(private val mAppViewModelStore: ViewModelStore = ViewModelStore()) :
+    ViewModelStoreOwner {
 
     companion object {
         private val sInstance: ApplicationScopeViewModel by lazy { ApplicationScopeViewModel() }
@@ -13,10 +12,7 @@ open class ApplicationScopeViewModel private constructor() : ViewModelStoreOwner
     }
 
     override fun getViewModelStore(): ViewModelStore {
-        if (mAppViewModelStore == null) {
-            mAppViewModelStore = ViewModelStore()
-        }
-        return mAppViewModelStore!!
+        return mAppViewModelStore
     }
 
 }
