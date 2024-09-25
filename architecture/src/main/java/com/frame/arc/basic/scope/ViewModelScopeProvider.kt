@@ -27,7 +27,7 @@ class ViewModelScopeProvider {
 
     fun <T : ViewModel> getApplicationScopeViewModel(modelClass: Class<T>): T {
         if (mApplicationProvider == null) {
-            mApplicationProvider = ViewModelProvider(ApplicationScopeViewModel.getInstance())
+            mApplicationProvider = ViewModelProvider(BaseApplication.getInstance())
         }
         return mApplicationProvider!![modelClass]
     }
