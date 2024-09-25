@@ -6,7 +6,7 @@ import android.os.Bundle
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.frame.arc.basic.scope.ApplicationScopeViewModel
+import com.frame.arc.basic.scope.BaseApplication
 import kotlinx.coroutines.*
 
 @Deprecated("")
@@ -16,7 +16,7 @@ open class BaseActivity : AppCompatActivity() {
 
     private val mApplicationProvider: ViewModelProvider by lazy {
         ViewModelProvider(
-            this.applicationContext as ApplicationScopeViewModel, getAppFactory(this)
+            this.applicationContext as BaseApplication, getAppFactory(this)
         )
     }
 

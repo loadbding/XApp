@@ -9,8 +9,8 @@ apply plugin: 'maven-publish'
 // Replace nisrulz with <your_github_username>
 final group = "com.github.loadbding"
 final artifact = "arch"
-final versionCode = 6
-final versionName = "0.0.6"
+final versionCode = 7
+final versionName = "0.0.7"
 
 android {
     defaultConfig {
