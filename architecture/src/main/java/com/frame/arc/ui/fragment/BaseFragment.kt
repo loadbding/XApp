@@ -6,19 +6,20 @@ import android.os.Bundle
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
-import com.frame.arc.BaseApp
 import com.frame.arc.callback.Presenter
+import com.frame.arc.basic.scope.ApplicationScopeViewModel
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Job
 import kotlinx.coroutines.MainScope
 import kotlinx.coroutines.launch
 
+@Deprecated("")
 abstract class BaseFragment : Fragment(), Presenter.SimplePresenter {
     private var mFragmentProvider: ViewModelProvider? = null
     private var mActivityProvider: ViewModelProvider? = null
     private val mApplicationProvider: ViewModelProvider by lazy {
         ViewModelProvider(
-            this.mActivity.application as BaseApp, getAppFactory(mActivity)
+            this.mActivity.application as ApplicationScopeViewModel, getAppFactory(mActivity)
         )
     }
     private lateinit var mActivity: Activity
