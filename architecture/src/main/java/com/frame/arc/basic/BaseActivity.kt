@@ -44,8 +44,6 @@ abstract class BaseActivity<VB : ViewBinding>(private val bindingInflater: (Layo
         return viewModelScopeProvider.getApplicationScopeViewModel(modelClass)
     }
 
-    protected val navController by lazy { }
-
     fun getActivityNavController(viewID: Int): NavController {
         return Navigation.findNavController(this, viewID)
     }
