@@ -6,9 +6,12 @@ import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.activity.OnBackPressedCallback
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.fragment.NavHostFragment
 import androidx.viewbinding.ViewBinding
 import com.frame.arc.basic.scope.ViewModelScopeProvider
 
@@ -30,6 +33,7 @@ abstract class BaseFragment<VB : ViewBinding>(private val bindingInflater: (Layo
         super.onViewCreated(view, savedInstanceState)
         initViews()
         initData(arguments)
+        addOnBackPress()
     }
 
     protected open fun initViews() {}
@@ -51,5 +55,28 @@ abstract class BaseFragment<VB : ViewBinding>(private val bindingInflater: (Layo
     protected fun <T : ViewModel> getApplicationViewModel(modelClass: Class<T>): T {
         return viewModelScopeProvider.getApplicationScopeViewModel(modelClass)
     }
+
+    fun getFragmentNavController(): NavController {
+        return NavHostFragment.findNavController(this)
+    }
+
+    open fun isAddBackPressedCallback(): Boolean {
+        return false
+    }
+
+    open fun onBackPress() {}
+
+    private fun addOnBackPress() {
+        if (isAddBackPressedCallback()) {
+            requireActivity().onBackPressedDispatcher.addCallback(
+                viewLifecycleOwner,
+                object : OnBackPressedCallback(true) {
+                    override fun handleOnBackPressed() {
+                        onBackPress()
+                    }
+                })
+        }
+    }
+
 
 }

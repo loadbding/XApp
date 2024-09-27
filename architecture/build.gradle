@@ -44,6 +44,7 @@ dependencies {
 
     api("androidx.multidex:multidex:2.0.1")
 
+    //lifecycle
     kapt("androidx.lifecycle:lifecycle-compiler:${lifecycle_version}")
     api("androidx.lifecycle:lifecycle-viewmodel-ktx:${lifecycle_version}")
     api("androidx.lifecycle:lifecycle-livedata-ktx:${lifecycle_version}")
@@ -52,6 +53,9 @@ dependencies {
     api("androidx.lifecycle:lifecycle-viewmodel-compose:${lifecycle_version}")
     api("androidx.lifecycle:lifecycle-common-java8:${lifecycle_version}")
 
+    //navigation
+    api("androidx.navigation:navigation-fragment-ktx:$navigation_version")
+    api("androidx.navigation:navigation-ui-ktx:$navigation_version")
 
     testImplementation 'junit:junit:4.13.2'
     androidTestImplementation 'androidx.test.ext:junit:1.1.5'

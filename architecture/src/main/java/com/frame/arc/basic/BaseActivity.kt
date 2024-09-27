@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import androidx.appcompat.app.AppCompatActivity
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.ViewModelProvider
+import androidx.navigation.NavController
+import androidx.navigation.Navigation
 import androidx.viewbinding.ViewBinding
 import com.frame.arc.basic.scope.ViewModelScopeProvider
 
@@ -40,6 +42,12 @@ abstract class BaseActivity<VB : ViewBinding>(private val bindingInflater: (Layo
 
     protected fun <T : ViewModel> getApplicationViewModel(modelClass: Class<T>): T {
         return viewModelScopeProvider.getApplicationScopeViewModel(modelClass)
+    }
+
+    protected val navController by lazy { }
+
+    fun getActivityNavController(viewID: Int): NavController {
+        return Navigation.findNavController(this, viewID)
     }
 
 }
