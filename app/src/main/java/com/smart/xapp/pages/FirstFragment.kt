@@ -1,4 +1,4 @@
-package com.smart.xapp
+package com.smart.xapp.pages
 
 import android.os.Bundle
 import androidx.fragment.app.Fragment
@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.navigation.fragment.findNavController
+import com.smart.xapp.R
 import com.smart.xapp.databinding.FragmentFirstBinding
 
 /**
